@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NEXORA AI — Future Intelligence</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,Arial,sans-serif;
+    background:#030511;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at 20% 10%,rgba(115,70,255,.18),transparent 28%),
+        radial-gradient(circle at 80% 25%,rgba(0,220,255,.12),transparent 25%),
+        radial-gradient(circle at 50% 90%,rgba(120,50,255,.10),transparent 30%);
+    z-index:-3;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.25;
+    background-image:
+        linear-gradient(rgba(100,120,255,.08) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(100,120,255,.08) 1px,transparent 1px);
+    background-size:70px 70px;
+    mask-image:linear-gradient(to bottom,black,transparent);
+    z-index:-2;
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.particle{
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:#69eaff;
+    box-shadow:0 0 12px #69eaff;
+    animation:floatParticle linear infinite;
+}
+
+@keyframes floatParticle{
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    85%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-20vh);
+        opacity:0;
+    }
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    backdrop-filter:blur(20px);
+    background:rgba(4,7,25,.72);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+    max-width:1400px;
+    margin:auto;
+    padding:18px 35px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:#45dfff;
+    text-shadow:0 0 20px rgba(69,223,255,.7);
+}
+
+.logo::before{
+    content:"✦";
+    color:#8b5cff;
+    margin-right:9px;
+}
+
+nav{
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    color:#9ba6c8;
+    text-decoration:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:white;
+    text-shadow:0 0 12px #7c6cff;
+}
+
+.nav-btn{
+    border:1px solid rgba(120,110,255,.4);
+    padding:12px 20px;
+    border-radius:14px;
+    color:white;
+    text-decoration:none;
+    background:rgba(100,80,255,.08);
+    transition:.3s;
+}
+
+.nav-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 30px rgba(100,80,255,.35);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    padding:150px 7% 80px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:50px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(95,45,255,.20),transparent 65%);
+    left:-300px;
+    top:100px;
+}
+
+.hero-text{
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 18px;
+    border:1px solid rgba(105,220,255,.25);
+    border-radius:50px;
+    background:rgba(80,150,255,.07);
+    color:#65ddff;
+    font-size:13px;
+    letter-spacing:3px;
+    margin-bottom:30px;
+    box-shadow:0 0 30px rgba(50,180,255,.08);
+}
+
+.badge i{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#56ffd2;
+    box-shadow:0 0 15px #56ffd2;
+}
+
+h1{
+    font-size:clamp(55px,7vw,110px);
+    line-height:.92;
+    letter-spacing:-6px;
+    margin-bottom:30px;
+}
+
+.gradient-text{
+    background:linear-gradient(90deg,#9271ff,#58dfff);
+    -webkit-background-clip:text;
+    color:transparent;
+    text-shadow:0 0 50px rgba(90,110,255,.15);
+}
+
+.hero-description{
+    max-width:650px;
+    color:#9aa5c5;
+    font-size:20px;
+    line-height:1.7;
+    margin-bottom:38px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+    padding:18px 28px;
+    border-radius:16px;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+    color:white;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:.35s;
+}
+
+.btn-primary{
+    background:linear-gradient(110deg,#7c4dff,#2f9fff);
+    box-shadow:
+        0 0 30px rgba(103,74,255,.35),
+        inset 0 1px rgba(255,255,255,.3);
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px) scale(1.02);
+    box-shadow:0 15px 45px rgba(75,100,255,.4);
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,.08);
+    transform:translateY(-4px);
+}
+
+/* =========================
+   3D CORE
+========================= */
+
+.hero-visual{
+    height:650px;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    perspective:1000px;
+}
+
+.core{
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    position:relative;
+    transform-style:preserve-3d;
+    background:
+        radial-gradient(circle at 30% 23%,#ffffff 0 2%,#bba8ff 7%,#764de2 28%,#17204d 70%,#050718 100%);
+    box-shadow:
+        0 0 40px #744cff,
+        0 0 100px rgba(100,70,255,.65),
+        0 0 190px rgba(80,100,255,.35),
+        inset -30px -30px 70px rgba(0,0,0,.65);
+    animation:coreFloat 5s ease-in-out infinite;
+}
+
+@keyframes coreFloat{
+    0%,100%{
+        transform:translateY(0) rotateY(0deg);
+    }
+    50%{
+        transform:translateY(-20px) rotateY(10deg);
+    }
+}
+
+.core::before{
+    content:"✦";
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:100px;
+    color:white;
+    text-shadow:
+        0 0 15px white,
+        0 0 40px #c5b5ff;
+}
+
+.core::after{
+    content:"";
+    position:absolute;
+    inset:-35px;
+    border-radius:50%;
+    border:1px solid rgba(75,220,255,.55);
+    box-shadow:
+        0 0 40px rgba(80,180,255,.25),
+        inset 0 0 30px rgba(120,80,255,.15);
+}
+
+/* orbital rings */
+
+.ring{
+    position:absolute;
+    width:470px;
+    height:170px;
+    border:1px solid rgba(87,212,255,.4);
+    border-radius:50%;
+    transform:rotateX(68deg) rotateZ(15deg);
+    animation:orbit 9s linear infinite;
+}
+
+.ring.two{
+    width:430px;
+    height:150px;
+    border-color:rgba(147,92,255,.45);
+    transform:rotateX(68deg) rotateZ(-35deg);
+    animation-duration:12s;
+    animation-direction:reverse;
+}
+
+.ring.three{
+    width:520px;
+    height:190px;
+    border-color:rgba(255,255,255,.12);
+    transform:rotateX(72deg) rotateZ(55deg);
+    animation-duration:15s;
+}
+
+@keyframes orbit{
+    from{
+        transform:rotateX(68deg) rotateZ(0deg);
+    }
+    to{
+        transform:rotateX(68deg) rotateZ(360deg);
+    }
+}
+
+/* beams */
+
+.beam{
+    position:absolute;
+    width:2px;
+    height:430px;
+    background:linear-gradient(transparent,#6de7ff,transparent);
+    opacity:.5;
+    filter:blur(1px);
+    animation:beam 4s ease-in-out infinite;
+}
+
+.beam:nth-child(1){
+    transform:rotate(25deg);
+}
+
+.beam:nth-child(2){
+    transform:rotate(-35deg);
+    animation-delay:1s;
+}
+
+.beam:nth-child(3){
+    transform:rotate(75deg);
+    animation-delay:2s;
+}
+
+@keyframes beam{
+    0%,100%{
+        opacity:.1;
+        height:300px;
+    }
+    50%{
+        opacity:.7;
+        height:550px;
+    }
+}
+
+.status-card{
+    position:absolute;
+    bottom:60px;
+    right:5%;
+    padding:18px 22px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    background:rgba(8,10,30,.7);
+    backdrop-filter:blur(20px);
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+.status-card span{
+    color:#61ffd0;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    max-width:1250px;
+    margin:-20px auto 100px;
+    padding:0 30px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.stat{
+    padding:28px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.025);
+    border-radius:20px;
+    backdrop-filter:blur(15px);
+}
+
+.stat strong{
+    display:block;
+    font-size:35px;
+    margin-bottom:8px;
+}
+
+.stat span{
+    color:#7d88aa;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    padding:110px 7%;
+}
+
+.section-head{
+    max-width:750px;
+    margin-bottom:55px;
+}
+
+.eyebrow{
+    color:#61dcff;
+    letter-spacing:3px;
+    font-weight:800;
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+.section-head h2{
+    font-size:clamp(40px,5vw,70px);
+    letter-spacing:-3px;
+    margin-bottom:18px;
+}
+
+.section-head p{
+    color:#8e99ba;
+    font-size:18px;
+    line-height:1.7;
+}
+
+/* =========================
+   DEMO
+========================= */
+
+.demo-box{
+    max-width:1250px;
+    margin:auto;
+    border:1px solid rgba(120,110,255,.2);
+    border-radius:30px;
+    background:linear-gradient(145deg,rgba(25,20,60,.8),rgba(5,8,22,.9));
+    overflow:hidden;
+    box-shadow:0 30px 100px rgba(0,0,0,.4);
+}
+
+.demo-top{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:18px 22px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#5f6788;
+}
+
+.demo-content{
+    padding:50px;
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    gap:40px;
+}
+
+.demo-left h3{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.demo-left p{
+    color:#8f99b8;
+    line-height:1.7;
+}
+
+.ai-console{
+    border:1px solid rgba(255,255,255,.08);
+    background:#030611;
+    border-radius:20px;
+    padding:25px;
+    min-height:250px;
+    font-family:monospace;
+}
+
+.console-line{
+    color:#6de7ff;
+    margin-bottom:15px;
+}
+
+.console-text{
+    color:#9ba6c8;
+    line-height:1.7;
+}
+
+.progress{
+    height:7px;
+    background:#11172b;
+    border-radius:20px;
+    margin:25px 0;
+    overflow:hidden;
+}
+
+.progress span{
+    display:block;
+    width:72%;
+    height:100%;
+    background:linear-gradient(90deg,#754cff,#52ddff);
+    box-shadow:0 0 20px #56bfff;
+    animation:progressMove 2s infinite alternate;
+}
+
+@keyframes progressMove{
+    from{width:40%}
+    to{width:90%}
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+    max-width:1250px;
+    margin:auto;
+}
+
+.tabs{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.tab{
+    padding:14px 20px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.09);
+    background:rgba(255,255,255,.03);
+    color:#8792b2;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.tab.active,
+.tab:hover{
+    color:white;
+    border-color:#795eff;
+    background:rgba(100,70,255,.12);
+    box-shadow:0 0 25px rgba(100,70,255,.15);
+}
+
+.feature-panel{
+    min-height:350px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:28px;
+    padding:50px;
+    background:linear-gradient(145deg,rgba(15,18,45,.9),rgba(4,7,18,.95));
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.feature-panel h3{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.feature-panel p{
+    color:#8f99b8;
+    line-height:1.7;
+}
+
+.feature-visual{
+    height:230px;
+    border-radius:20px;
+    background:
+        radial-gradient(circle at 50% 40%,rgba(111,78,255,.4),transparent 40%),
+        #050817;
+    border:1px solid rgba(100,100,255,.18);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    position:relative;
+}
+
+.visual-core{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:linear-gradient(145deg,#a78bff,#171b45);
+    box-shadow:0 0 70px #754cff;
+    animation:coreFloat 3s infinite;
+}
+
+/* =========================
+   PRICING
+========================= */
+
+.pricing-box{
+    max-width:1000px;
+    margin:auto;
+    padding:45px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.1);
+    background:linear-gradient(145deg,rgba(18,21,50,.95),rgba(5,8,20,.95));
+    box-shadow:0 30px 100px rgba(0,0,0,.35);
+}
+
+.billing{
+    display:flex;
+    justify-content:center;
+    margin-bottom:40px;
+}
+
+.toggle{
+    display:flex;
+    padding:5px;
+    border-radius:50px;
+    background:#0c1023;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.billing button{
+    border:0;
+    padding:13px 24px;
+    border-radius:40px;
+    color:#8993b2;
+    background:transparent;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.billing button.active{
+    background:linear-gradient(100deg,#744cff,#329fff);
+    color:white;
+    box-shadow:0 0 25px rgba(90,90,255,.3);
+}
+
+.users{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.users label{
+    display:block;
+    color:#8f99b8;
+    margin-bottom:12px;
+}
+
+#userCount{
+    font-size:40px;
+    font-weight:900;
+    background:linear-gradient(90deg,#9a78ff,#5bdcff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+input[type="range"]{
+    width:100%;
+    accent-color:#795cff;
+    cursor:pointer;
+}
+
+.price{
+    text-align:center;
+    font-size:80px;
+    font-weight:900;
+    letter-spacing:-5px;
+    margin:30px 0 10px;
+}
+
+.price small{
+    font-size:18px;
+    color:#7983a3;
+    letter-spacing:0;
+}
+
+.price-note{
+    text-align:center;
+    color:#727d9c;
+}
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+    max-width:950px;
+    margin:auto;
+}
+
+.faq-item{
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.faq-question{
+    width:100%;
+    background:none;
+    border:0;
+    color:white;
+    padding:25px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    font-size:18px;
+    text-align:left;
+}
+
+.plus{
+    font-size:28px;
+    color:#6ddfff;
+    transition:.3s;
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .45s ease,padding .45s ease;
+    color:#8c96b5;
+    line-height:1.7;
+}
+
+.faq-item.open .faq-answer{
+    max-height:200px;
+    padding-bottom:25px;
+}
+
+.faq-item.open .plus{
+    transform:rotate(45deg);
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    text-align:center;
+    padding:130px 20px;
+    position:relative;
+    overflow:hidden;
+}
+
+.cta::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:300px;
+    background:#693cff;
+    filter:blur(160px);
+    opacity:.18;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+
+.cta h2{
+    position:relative;
+    font-size:clamp(45px,6vw,80px);
+    margin-bottom:25px;
+}
+
+.cta p{
+    position:relative;
+    color:#8d97b7;
+    margin-bottom:35px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:35px 7%;
+    display:flex;
+    justify-content:space-between;
+    color:#68728f;
+}
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    nav{
+        display:none;
+    }
+
+    .nav{
+        padding:15px 20px;
+    }
+
+    .nav-btn{
+        padding:10px 14px;
+        font-size:13px;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+        padding:130px 20px 70px;
+    }
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+        font-size:17px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-visual{
+        height:470px;
+        order:2;
+    }
+
+    .core{
+        width:210px;
+        height:210px;
+    }
+
+    .core::before{
+        font-size:70px;
+    }
+
+    .ring{
+        width:330px;
+        height:120px;
+    }
+
+    .status-card{
+        right:50%;
+        transform:translateX(50%);
+        bottom:20px;
+        white-space:nowrap;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+        margin-bottom:50px;
+    }
+
+    section{
+        padding:80px 20px;
+    }
+
+    .demo-content,
+    .feature-panel{
+        grid-template-columns:1fr;
+    }
+
+    .demo-content,
+    .feature-panel,
+    .pricing-box{
+        padding:25px;
+    }
+
+    .price{
+        font-size:55px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:15px;
+    }
+}
+
+@media(max-width:500px){
+
+    h1{
+        font-size:55px;
+        letter-spacing:-3px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .badge{
+        font-size:10px;
+    }
+
+    .hero-visual{
+        height:400px;
+    }
+
+    .core{
+        width:170px;
+        height:170px;
+    }
+
+    .core::before{
+        font-size:55px;
+    }
+
+    .ring{
+        width:280px;
+        height:100px;
+    }
+
+    .section-head h2{
+        font-size:42px;
+    }
+
+    .feature-panel h3,
+    .demo-left h3{
+        font-size:30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PARTICLES -->
+<div class="particles" id="particles"></div>
+
+<!-- NAVIGATION -->
+<header>
+    <div class="nav">
+
+        <div class="logo">
+            NEXORA <span>AI</span>
+        </div>
+
+        <nav>
+            <a href="#home">Главная</a>
+            <a href="#demo">Демонстрация</a>
+            <a href="#features">Возможности</a>
+            <a href="#pricing">Тарифы</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+
+        <a class="nav-btn" href="#pricing">
+            Попробовать →
+        </a>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+<main id="home">
+
+<section class="hero">
+
+    <div class="hero-text reveal">
+
+        <div class="badge">
+            <i></i>
+            NEXT GENERATION AI
+        </div>
+
+        <h1>
+            Intelligence.<br>
+            <span class="gradient-text">Reimagined.</span>
+        </h1>
+
+        <p class="hero-description">
+            NEXORA AI — интеллектуальная платформа нового поколения
+            для анализа данных, автоматизации и создания цифровых решений.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#demo" class="btn btn-primary">
+                Запустить AI →
+            </a>
+
+            <a href="#features" class="btn btn-secondary">
+                Возможности
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual" id="heroVisual">
+
+        <div class="beam"></div>
+        <div class="beam"></div>
+        <div class="beam"></div>
+
+        <div class="ring"></div>
+        <div class="ring two"></div>
+        <div class="ring three"></div>
+
+        <div class="core" id="core"></div>
+
+        <div class="status-card">
+            ✦ AI ENGINE:
+            <span>ONLINE</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<div class="stats reveal">
+
+    <div class="stat">
+        <strong>99.9%</strong>
+        <span>Стабильность системы</span>
+    </div>
+
+    <div class="stat">
+        <strong>24/7</strong>
+        <span>AI работает постоянно</span>
+    </div>
+
+    <div class="stat">
+        <strong>10×</strong>
+        <span>Быстрее ручной работы</span>
+    </div>
+
+</div>
+
+
+<!-- DEMO -->
+
+<section id="demo">
+
+    <div class="section-head reveal">
+
+        <div class="eyebrow">LIVE DEMO</div>
+
+        <h2>
+            Посмотри, как работает NEXORA
+        </h2>
+
+        <p>
+            Настоящая интерактивная демонстрация прямо внутри сайта.
+        </p>
+
+    </div>
+
+
+    <div class="demo-box reveal">
+
+        <div class="demo-top">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <div class="demo-content">
+
+            <div class="demo-left">
+
+                <h3>AI Engine</h3>
+
+                <p>
+                    Интеллектуальное ядро анализирует информацию,
+                    находит закономерности и формирует результат.
+                </p>
+
+                <div class="progress">
+                    <span></span>
+                </div>
+
+                <button class="btn btn-primary" id="runAI">
+                    Запустить анализ
+                </button>
+
+            </div>
+
+
+            <div class="ai-console">
+
+                <div class="console-line" id="consoleTitle">
+                    &gt; NEXORA_AI.start()
+                </div>
+
+                <div class="console-text" id="consoleText">
+                    Система готова к работе.<br><br>
+                    Нажмите «Запустить анализ», чтобы увидеть
+                    работу AI Engine.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section id="features">
+
+    <div class="section-head reveal">
+
+        <div class="eyebrow">FEATURES</div>
+
+        <h2>
+            Всё необходимое<br>
+            в одной системе.
+        </h2>
+
+        <p>
+            Нажимай на вкладки — содержимое меняется интерактивно.
+        </p>
+
+    </div>
+
+
+    <div class="features reveal">
+
+        <div class="tabs">
+
+            <button class="tab active" data-feature="ai">
+                ✦ AI Engine
+            </button>
+
+            <button class="tab" data-feature="automation">
+                ◈ Automation
+            </button>
+
+            <button class="tab" data-feature="analytics">
+                ≋ Analytics
+            </button>
+
+            <button class="tab" data-feature="security">
+                ◉ Security
+            </button>
+
+        </div>
+
+
+        <div class="feature-panel">
+
+            <div>
+
+                <h3 id="featureTitle">
+                    AI Engine
+                </h3>
+
+                <p id="featureText">
+                    Интеллектуальное ядро анализирует данные,
+                    понимает контекст и помогает создавать решения.
+                </p>
+
+            </div>
+
+
+            <div class="feature-visual">
+
+                <div class="visual-core" id="visualCore"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRICING -->
+
+<section id="pricing">
+
+    <div class="section-head reveal">
+
+        <div class="eyebrow">PRICING CALCULATOR</div>
+
+        <h2>
+            Рассчитай стоимость.
+        </h2>
+
+        <p>
+            Выбери количество пользователей и период оплаты.
+            Цена изменится автоматически.
+        </p>
+
+    </div>
+
+
+    <div class="pricing-box reveal">
+
+        <div class="billing">
+
+            <div class="toggle">
+
+                <button id="monthly" class="active">
+                    Помесячно
+                </button>
+
+                <button id="yearly">
+                    Годовая
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="users">
+
+            <label>
+                Количество пользователей
+            </label>
+
+            <div id="userCount">
+                10
+            </div>
+
+            <input
+                id="userSlider"
+                type="range"
+                min="1"
+                max="100"
+                value="10"
+            >
+
+        </div>
+
+
+        <div class="price">
+            <span id="price">490</span>
+            <small> сом / мес</small>
+        </div>
+
+        <div class="price-note" id="priceNote">
+            Стоимость рассчитывается автоматически
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section id="faq">
+
+    <div class="section-head reveal">
+
+        <div class="eyebrow">FAQ</div>
+
+        <h2>
+            Частые вопросы.
+        </h2>
+
+    </div>
+
+
+    <div class="faq reveal">
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Что такое NEXORA AI?
+                <span class="plus">+</span>
+            </button>
+
+            <div class="faq-answer">
+                NEXORA AI — концепция современной AI-платформы
+                для автоматизации, анализа данных и цифровых продуктов.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Можно ли использовать платформу 24/7?
+                <span class="plus">+</span>
+            </button>
+
+            <div class="faq-answer">
+                Да. Концепция платформы рассчитана на постоянную
+                работу и автоматизацию процессов.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Как рассчитывается цена?
+                <span class="plus">+</span>
+            </button>
+
+            <div class="faq-answer">
+                Цена зависит от количества пользователей и выбранного
+                периода оплаты. Используй калькулятор выше.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Работает ли сайт на телефоне?
+                <span class="plus">+</span>
+            </button>
+
+            <div class="faq-answer">
+                Да. Интерфейс адаптирован под компьютеры,
+                планшеты и смартфоны.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h2>
+        Будущее начинается<br>
+        <span class="gradient-text">сейчас.</span>
+    </h2>
+
+    <p>
+        Создавай. Анализируй. Автоматизируй.
+    </p>
+
+    <a href="#pricing" class="btn btn-primary">
+        Начать с NEXORA AI →
+    </a>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div>
+        © 2026 NEXORA AI
+    </div>
+
+    <div>
+        Intelligence • Automation • Future
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   PARTICLES
+========================= */
+
+const particles = document.getElementById("particles");
+
+for(let i = 0; i < 90; i++){
+
+    const p = document.createElement("div");
+
+    p.className = "particle";
+
+    p.style.left = Math.random() * 100 + "%";
+    p.style.animationDuration = (5 + Math.random() * 12) + "s";
+    p.style.animationDelay = (-Math.random() * 12) + "s";
+    p.style.opacity = Math.random();
+
+    particles.appendChild(p);
+}
+
+
+/* =========================
+   MOUSE 3D EFFECT
+========================= */
+
+const heroVisual = document.getElementById("heroVisual");
+const core = document.getElementById("core");
+
+heroVisual.addEventListener("mousemove",(e)=>{
+
+    const rect = heroVisual.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateY = (x / rect.width - .5) * 25;
+    const rotateX = (y / rect.height - .5) * -25;
+
+    core.style.transform =
+        `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+
+});
+
+heroVisual.addEventListener("mouseleave",()=>{
+
+    core.style.transform = "";
+
+});
+
+
+/* =========================
+   AI DEMO
+========================= */
+
+const runAI = document.getElementById("runAI");
+const consoleText = document.getElementById("consoleText");
+const consoleTitle = document.getElementById("consoleTitle");
+
+runAI.addEventListener("click",()=>{
+
+    runAI.disabled = true;
+    runAI.innerHTML = "AI анализирует...";
+
+    consoleTitle.textContent = "> NEXORA_AI.processing()";
+
+    consoleText.innerHTML =
+        "Подключение к AI Engine...<br>" +
+        "Анализ данных...<br>" +
+        "Поиск закономерностей...<br>" +
+        "Оптимизация решения...";
+
+    setTimeout(()=>{
+
+        consoleTitle.textContent = "> NEXORA_AI.complete()";
+
+        consoleText.innerHTML =
+            "✓ Анализ завершён.<br><br>" +
+            "✓ Данные обработаны.<br>" +
+            "✓ Модель оптимизирована.<br>" +
+            "✓ Решение готово.";
+
+        runAI.disabled = false;
+        runAI.innerHTML = "Запустить снова →";
+
+    },2500);
+
+});
+
+
+/* =========================
+   FEATURES TABS
+========================= */
+
+const featureData = {
+
+    ai:{
+        title:"AI Engine",
+        text:"Интеллектуальное ядро анализирует данные, понимает контекст и помогает создавать решения."
+    },
+
+    automation:{
+        title:"Automation",
+        text:"Автоматизируй повторяющиеся процессы и освободи время для более важных задач."
+    },
+
+    analytics:{
+        title:"Analytics",
+        text:"Получай понятную визуализацию данных и находи важные закономерности."
+    },
+
+    security:{
+        title:"Security",
+        text:"Современный подход к защите данных и контролю доступа пользователей."
+    }
+
+};
+
+const tabs = document.querySelectorAll(".tab");
+
+tabs.forEach(tab=>{
+
+    tab.addEventListener("click",()=>{
+
+        tabs.forEach(t=>t.classList.remove("active"));
+
+        tab.classList.add("active");
+
+        const key = tab.dataset.feature;
+
+        document.getElementById("featureTitle").textContent =
+            featureData[key].title;
+
+        document.getElementById("featureText").textContent =
+            featureData[key].text;
+
+        const visualCore =
+            document.getElementById("visualCore");
+
+        visualCore.style.transform =
+            "scale(.4) rotate(180deg)";
+
+        setTimeout(()=>{
+
+            visualCore.style.transform =
+                "scale(1) rotate(0deg)";
+
+        },250);
+
+    });
+
+});
+
+
+/* =========================
+   PRICE CALCULATOR
+========================= */
+
+const slider = document.getElementById("userSlider");
+const userCount = document.getElementById("userCount");
+const price = document.getElementById("price");
+
+const monthlyBtn = document.getElementById("monthly");
+const yearlyBtn = document.getElementById("yearly");
+
+let yearly = false;
+
+function calculatePrice(){
+
+    const users = Number(slider.value);
+
+    userCount.textContent = users;
+
+    let result = 490 + (users - 1) * 80;
+
+    if(yearly){
+        result = Math.round(result * .8);
+    }
+
+    price.textContent = result.toLocaleString("ru-RU");
+}
+
+slider.addEventListener("input",calculatePrice);
+
+monthlyBtn.addEventListener("click",()=>{
+
+    yearly = false;
+
+    monthlyBtn.classList.add("active");
+    yearlyBtn.classList.remove("active");
+
+    calculatePrice();
+
+});
+
+yearlyBtn.addEventListener("click",()=>{
+
+    yearly = true;
+
+    yearlyBtn.classList.add("active");
+    monthlyBtn.classList.remove("active");
+
+    calculatePrice();
+
+});
+
+
+/* =========================
+   FAQ
+========================= */
+
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item=>{
+
+    const question =
+        item.querySelector(".faq-question");
+
+    question.addEventListener("click",()=>{
+
+        faqItems.forEach(other=>{
+
+            if(other !== item){
+                other.classList.remove("open");
+            }
+
+        });
+
+        item.classList.toggle("open");
+
+    });
+
+});
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const reveals =
+    document.querySelectorAll(".reveal");
+
+const observer =
+    new IntersectionObserver((entries)=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    },{
+        threshold:.12
+    });
+
+reveals.forEach(el=>observer.observe(el));
+
+
+/* =========================
+   START PRICE
+========================= */
+
+calculatePrice();
+
+</script>
+
+</body>
+</html>
